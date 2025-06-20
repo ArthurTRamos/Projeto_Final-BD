@@ -24,17 +24,35 @@ CREATE TABLE usuario(
 	Nome varchar(50),
 	Sobrenome varchar(50),
 	Data_Nascimento date,
+	Numero int,
+	cep varchar(9),
+	sexo varchar(11),
+	email varchar(40)
+);
+
+CREATE TABLE Telefones_Usuario (
+	ID_Usuario SERIAL,
+	Telefone varchar(15),
+	PRIMARY KEY (ID_Usuario, Telefone),
+	FOREIGN KEY (ID_Usuario) REFERENCES usuario(id)
+);
+
+CREATE TABLE Endereco_Usuario (
+	CEP varchar(9) PRIMARY KEY,
 	Pais varchar(56),
 	Estado varchar(19),
 	Cidade varchar(20),
 	Bairro varchar(20),
-	Rua varchar(30),
-	Numero int,
-	cep varchar(9),
-	sexo varchar(11),
-	telefone(13),
-	email varchar(40)
+
+	FOREIGN KEY (CEP) REFERENCES usuario(cep)
 );
+
+CREATE TABLE Login_Usuario (
+	Email varchar(40) PRIMARY KEY,
+	Senha varchar(40),
+	FOREIGN KEY (Email) REFERENCES usuario(email)
+);
+
 --Comunicacaoo = {ID_Comunicacao (PK), Timestamp, Conteudo, Tipo}
 CREATE TABLE comunicacao(
 	id_Comunicacao SERIAL PRIMARY KEY,
@@ -61,7 +79,6 @@ CREATE TABLE Materiais_Didaticos_Recomendados (
 );
 
 
-(ID_Disciplina, Material_Didatico_Recomendado)
 --Professor = {ID_Professor (PK, FK de Usuario), ID_Unidade (de Unidade da Escola) (FK)}
 CREATE TABLE professor(
 	id_professor int NOT NULL PRIMARY KEY,
