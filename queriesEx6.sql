@@ -92,7 +92,7 @@ WHERE
 	T.Periodo_Letivo = '2025/1';
 
 
-
+-- Consultar a avaliação média de cada professor que lecionou uma disciplina no último período
 
 SELECT
     U.ID,
