@@ -1,3 +1,4 @@
+EXPLAIN ANALYZE
 SELECT
 	U.Nome || ' ' || U.Sobrenome AS nome_completo,
 	T.ID_Disciplina AS disciplina,
