@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS idx_turma_periodo_hash;

@@ -1,0 +1,2 @@
+EXPLAIN ANALYZE
+SELECT * FROM Turma WHERE Periodo_Letivo = '2025/1';

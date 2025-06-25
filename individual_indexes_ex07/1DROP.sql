@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS idx_avaliacao_comentario_gin;
